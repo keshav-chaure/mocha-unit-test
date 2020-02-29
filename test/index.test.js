@@ -7,7 +7,7 @@ const chai = require("chai");
 const sinon = require("sinon");
 //const appController = require("../src/controllers/app.controller");
 
-const {alwaysTrue, legitString} = require ('../src/index')
+const {alwaysTrue, isString} = require ('../src/index')
 
 describe("#alwaysTrue ", ()=>{
     it("it should always return true",()=>{
@@ -20,6 +20,34 @@ describe("#alwaysTrue ", ()=>{
          alwaysTrue().should.not.be.false
     });
 
+})
+
+describe("#isString",()=>{
+    it("should detect 'keshav' as string ",()=>{
+        isString("keshav").should.be.true;
+    })
+
+    it("empty or nothing is not string ",()=>{
+        isString().should.not.be.true;
+    })
+
+    it("undefined is not string ",()=>{
+        isString(undefined).should.not.be.true;
+    })
+    
+    it(" '' is true string ",()=>{
+        isString('').should.not.be.true;
+    })
+
+    it(" 123 is not string",()=>{
+        isString(123).should.not.be.true;
+    })
+    it(" 12.3 is not string",()=>{
+        isString(12.3).should.not.be.true;
+    })
+    it(" Object is not string",()=>{
+        isString({}).should.not.be.true;
+    })
 })
 describe("#mocha test", function()  {
 
