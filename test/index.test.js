@@ -36,7 +36,7 @@ describe("#isString",()=>{
     })
     
     it(" '' is true string ",()=>{
-        isString('').should.not.be.true;
+        isString('').should.be.true;
     })
 
     it(" 123 is not string",()=>{
